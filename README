@@ -1,0 +1,12 @@
+Installation
+
+	git clone git://github.com/lkeersmaekers/dotvim.git
+
+Switch to the `~/.vim` directory and fetch submodules
+
+	git submodule init
+	git submodule update
+
+Python
+	Gundo uses python 2.7.2 32-bit (when vim 7.3 32-bit is installed)
+	Download Windows x86 MSI Installer (2.7) at http://www.python.org/getit/releases/2.7/

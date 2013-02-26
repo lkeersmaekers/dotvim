@@ -285,45 +285,18 @@ nmap <leader>ga :Gwrite<cr>
 nmap <leader>gl :Glog<cr>
 nmap <leader>gd :Gdiff<cr>
 
-" => CtrlP
-nmap <leader>f :CtrlP %:p<cr>
-nmap <leader>m :CtrlPMRUFiles<cr>
+" => Mru
+nmap <leader>m :MRU<cr>
 
-" Set the maximum height of the match window:
-let g:ctrlp_max_height = 40
+" Remember 1000 most recently used file names
+let MRU_Max_Entries = 1000
 
-" Set this to 1 to set regexp search as the default:
-let g:ctrlp_regexp = 1
+" Exclude files using patters
+let MRU_Exclude_Files = '\v\.(exe|so|dll|dcu|\~\w*)$|\v[\/]\.(git|hg|svn|dcu|\~\w*)$'
 
-" Set this to 1 to disable sorting when searching in MRU mode:
-let g:ctrlp_mruf_default_order = 1
+" Change the default window height
+let MRU_Window_Height = 15
 
-" Set this to 0 to show the match window at the top of the screen:
-let g:ctrlp_match_window_bottom = 1
-
-" In addition to |'wildignore'|, use this for files and directories you want only
-" CtrlP to not show. Use regexp to specify the patterns: >
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|dcu|\~\w*)$',
-  \ 'file': '\v\.(exe|so|dll|dcu|\~\w*)$',
-  \ }
-
-" Set this to 0 to enable cross-session caching by not deleting the cache files
-" upon exiting Vim: >
-let g:ctrlp_clear_cache_on_exit = 0
-
-" Set this to 1 to set searching by filename (as opposed to full path) as the
-" default: >
-let g:ctrlp_by_filename = 1
-
-" Specify an external tool to use for listing files instead of using Vim's
-" |globpath()|. Use %s in place of the target directory: >
-
-" Note: Messes up custom_ignore
-"let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
-
-" Specify the number of recently opened files you want CtrlP to remember:
-let g:ctrlp_mruf_max = 99
 
 " => bufExplorer
 nmap <leader>b :BufExplorer<cr>

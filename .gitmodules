@@ -58,3 +58,6 @@
   path = vim73/bundle/mru.vim.git
   url = https://github.com/vim-scripts/mru.vim.git
   ignore=dirty
+[submodule "vim73/bundle/vim-unimpaired.git"]
+	path = vim73/bundle/vim-unimpaired.git
+	url = https://github.com/tpope/vim-unimpaired.git

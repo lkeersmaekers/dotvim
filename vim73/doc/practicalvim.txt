@@ -1,0 +1,54 @@
+Practical VIM
+
+Currentpage = 39 (63 van 329)
+
+----------------------------------------------------------------------------------------------
+Page | Command                     | Explain               
+----------------------------------------------------------------------------------------------
+p21  | ?                           | Backward search       
+p21  | =                           | Use Command-line mode to evaluate a Vim script expression
+----------------------------------------------------------------------------------------------
+p23  | vit                         | Visual select inner tag (vi", vi', ...)
+p23  | $ vim -u NONE -N            | Start without customizations
+p24  | $ vim -u code/essential.vim | Start absolute minimum config to work with samples
+----------------------------------------------------------------------------------------------
+p32  | C                           | c$    -> change from cursor to end of line
+p32  | s                           | cl    -> insert in between
+p32  | S                           | ^C    -> change entire line
+p32  | I                           | ^i    -> insert in front of line
+p32  | A                           | $a    -> append to end of line
+p32  | o                           | A<CR> -> add new line below cursor
+p32  | O                           | ko    -> add new line above cursor
+----------------------------------------------------------------------------------------------
+p46  | 180<C-x>                    | Subtract 180 from first found digit on current line
+----------------------------------------------------------------------------------------------
+p49  | gUU                         | Uppercase current line (guu -> lowercase)
+----------------------------------------------------------------------------------------------
+p53  | <C-h>                       | Delete back one character (in Insert mode)
+p53  | <C-w>                       | Delete back one word (in Insert mode)
+p53  | <C-h>                       | Delete back to start of line (in Insert mode)
+----------------------------------------------------------------------------------------------
+p54  | <C-o>                       | Switch to Insert Normal mode !!!
+----------------------------------------------------------------------------------------------
+p55  | <C-r>{register}             | Insert registry contents in Insert Mode
+----------------------------------------------------------------------------------------------
+p56  | <C-r>=                      | Evaluate expression in Insert Mode. pe. <C-r>=10+5<CR>
+----------------------------------------------------------------------------------------------
+p57  | ga                          | Show numeric code for character under cursor
+----------------------------------------------------------------------------------------------
+p58  | <C-v>{123}                  | Insert character by decimal code
+p58  | <C-v>u{1234}                | Insert character by hexadecimal code
+p58  | <C-v>{nondigit}             | Insert nondigit literally
+p58  | <C-k>{char1}{char2}         | Insert character represented by digraph
+p58  | :h digraph-table            | Help for digraphs
+----------------------------------------------------------------------------------------------
+p60  | gR                          | Virtual replace mode, treating tab character as though consisting of spaces.
+
+
+
+
+
+
+Also
+----------------------------------------------------------------------------------------------
+     | :rv!                        | http://stackoverflow.com/questions/13230831/how-to-share-register-within-vim-processes

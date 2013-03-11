@@ -33,6 +33,7 @@ set si           " Smart indent
 set rnu          " Relative to cursor linenumbers
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
+set showbreak=ª
 
 " => General
 " Sets how many lines of history VIM has to remember
@@ -51,7 +52,7 @@ let mapleader = ","
 let g:mapleader = ","
 
 " Search results to new buffer window
-nmap <F3> :redir @a<cr>:g//<cr>:redir END<cr>:new<cr>:put! a<cr><cr>
+nnoremap <F3> :redir @a<cr>:g//<cr>:redir END<cr>:new<cr>:put! a<cr><cr>
 
 " Search and replace word under cursor
 nnoremap <F4> :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i
@@ -60,14 +61,14 @@ nnoremap <F4> :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i
 nnoremap <c-cr> i<cr><esc>
 
 " Fast editing and sourcing of the .vimrc
-map <leader>ev :e! $MYVIMRC<cr>
-map <leader>sv :so $MYVIMRC<cr>
+noremap <leader>ev :e! $MYVIMRC<cr>
+noremap <leader>sv :so $MYVIMRC<cr>
 
 " Automatically cd into the directory that the file is in
 "autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
 " Press i to enter insert mode, and jj to exit.
-:imap jj <Esc>
+:inoremap jj <Esc>
 
 " Show the cursorline
 :set cursorline
@@ -82,11 +83,11 @@ set nrformats=
 set clipboard=unnamed
 
 " Use <c-n> to navigate to next buffer
-nmap <c-n> :bn<cr>
-nmap <a-n> :bp<cr>
+nnoremap <c-n> :bn<cr>
+nnoremap <a-n> :bp<cr>
 
 " => VIM user interface
-" Set 0 lines to the cursors - when moving vertical..
+" set 0 lines to the cursors - when moving vertical..
 set so=0
 
 set wildmenu "Turn on WiLd menu
@@ -97,7 +98,7 @@ set cmdheight=2 "The commandbar height
 
 set hid "Change buffer - without saving
 
-" Set backspace config
+" set backspace config
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
@@ -114,13 +115,13 @@ set magic "Set magic on, for regular expressions
 set showmatch "Show matching bracets when text indicator is over them
 set mat=2 "How many tenths of a second to blink
 
-" No sound on errors
+" no sound on errors
 set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
 
-" Maximize current window
+" maximize current window
 noremap <F5> <c-w>_<c-w><Bar>
 
 " Normalize all windows
@@ -131,8 +132,8 @@ syntax enable       "Enable syntax highlighting
 set synmaxcol=120   "http://stackoverflow.com/questions/901313/editing-xml-files-with-long-lines-is-really-slow-in-vim-what-can-i-do-to-fix-th
 
 " Fast switch to preferred colorschemes.
-map <leader>sc :SetColors my<cr>
-map <leader>c :call NextColor(0)<cr>
+nnoremap <leader>sc :SetColors my<cr>
+nnoremap <leader>c :call NextColor(0)<cr>
 
 " Set current favourite colorscheme
 :colorscheme xoria256
@@ -169,7 +170,7 @@ vnoremap <silent> # :call VisualSearch('b')<cr>
 
 " When you press gv you vimgrep after the selected text
 vnoremap <silent> gv :call VisualSearch('gv')<cr>
-map <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left>
+noremap <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left>
 
 " From an idea by Michael Naumann
 function! VisualSearch(direction) range
@@ -193,26 +194,26 @@ endfunction
 
 " => Buffers, Windows
 " Smart way to move btw. windows
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-h> <c-w>h
-map <c-l> <c-w>l
+noremap <c-j> <c-w>j
+noremap <c-k> <c-w>k
+noremap <c-h> <c-w>h
+noremap <c-l> <c-w>l
 
 " Close the current buffer
-map <leader>bd :Bclose<cr>
+noremap <leader>bd :Bclose<cr>
 
 " Close all the buffers (No warnings)
-map <leader>ba :1,300 bd!<cr>
+noremap <leader>ba :1,300 bd!<cr>
 
 " Tab configuration
-map <leader>tn :tabnew<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
-map <c-tab> :tabn<cr>
+noremap <leader>tn :tabnew<cr>
+noremap <leader>te :tabedit
+noremap <leader>tc :tabclose<cr>
+noremap <leader>tm :tabmove
+noremap <c-tab> :tabn<cr>
 
 " When pressing <leader>cd switch to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>
+noremap <leader>cd :cd %:p:h<cr>
 
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
@@ -245,8 +246,18 @@ endtry
 set sua+=.pas,.dfm,.dpr
 
 " Open files in vertical/horizontal window
-":nmap gfv :vertical wincmd f<cr>
-":nmap gfh :wincmd f<cr>
+":nnoremap gfv :vertical wincmd f<cr>
+":nnoremap gfh :wincmd f<cr>
+
+nnoremap <silent> <Leader>df :call DiffToggle()<CR>
+
+function! DiffToggle()
+    if &diff
+        diffoff
+    else
+        diffthis
+    endif
+:endfunction
 
 " => Statusline
 " Always hide the statusline
@@ -264,10 +275,10 @@ function! HasPaste()
 endfunction
 
 "Move a line of text using ALT+[jk] or Command+[jk] on mac
-nmap <m-j> mz:m+<cr>`z
-nmap <m-k> mz:m-2<cr>`z
-vmap <m-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <m-k> :m'<-2<cr>`>my`<mzgv`yo`z
+nnoremap <m-j> mz:m+<cr>`z
+nnoremap <m-k> mz:m-2<cr>`z
+vnoremap <m-j> :m'>+<cr>`<my`>mzgv`yo`z
+vnoremap <m-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
 " => cTags
 "  This will check the current folder for tags file and keep going on directory up all the way to the root folder to
@@ -276,17 +287,17 @@ set tags=tags;/
 
 " => NERDTree
 "  Open NERDTree using the current file's path as root
-nmap <leader>nt :NERDTree %:p<cr>
+nnoremap <leader>nt :NERDTree %:p<cr>
 
 " => Fugitive
-nmap <leader>gs :Gstatus<cr>
-nmap <leader>gc :Gcommit<cr>
-nmap <leader>ga :Gwrite<cr>
-nmap <leader>gl :Glog<cr>
-nmap <leader>gd :Gdiff<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gc :Gcommit<cr>
+nnoremap <leader>ga :Gwrite<cr>
+nnoremap <leader>gl :Glog<cr>
+nnoremap <leader>gd :Gdiff<cr>
 
 " => Mru
-nmap <leader>m :MRU<cr>
+nnoremap <leader>m :MRU<cr>
 
 " Remember 1000 most recently used file names
 let MRU_Max_Entries = 1000
@@ -299,7 +310,7 @@ let MRU_Window_Height = 15
 
 
 " => bufExplorer
-nmap <leader>b :BufExplorer<cr>
+nnoremap <leader>b :BufExplorer<cr>
 
 " => Load local settings
 if has('unix') || has('macunix')

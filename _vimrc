@@ -35,6 +35,12 @@ set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 set showbreak=ª
 
+" Abbreviations
+iabbrev @@ lieven@iwega.be
+iabbrev ssig <cr>Lieven Keersmaekers<cr>lieven@iwega.be
+
+" Common typo's
+
 " => General
 " Sets how many lines of history VIM has to remember
 set history=999
@@ -50,6 +56,8 @@ set autoread
 " like <leader>w saves the current file
 let mapleader = ","
 let g:mapleader = ","
+let maplocalleader = ","
+let g:maplocalleader = ","
 
 " Search results to new buffer window
 nnoremap <F3> :redir @a<cr>:g//<cr>:redir END<cr>:new<cr>:put! a<cr><cr>
@@ -61,20 +69,16 @@ nnoremap <F4> :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i
 nnoremap <c-cr> i<cr><esc>
 
 " Fast editing and sourcing of the .vimrc
-noremap <leader>ev :e! $MYVIMRC<cr>
-noremap <leader>sv :so $MYVIMRC<cr>
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :so $MYVIMRC<cr>
 
-" Automatically cd into the directory that the file is in
-"autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
-
-" Press i to enter insert mode, and jj to exit.
-:inoremap jj <Esc>
+" Press kj to exit insert mode.
+inoremap kj <esc>
+" The trick to relearning a mapping is to *force* yourself to use it by *disabling* the old key(s).
+inoremap <esc> <nop>
 
 " Show the cursorline
-:set cursorline
-
-" echo hexadecimal number to decimal
-nnoremap <leader>h :echo 0x<c-r><c-w><cr>
+set cursorline
 
 " Don't use Octal or Hex numbering when autoin(de)crement
 set nrformats=
@@ -86,8 +90,12 @@ set clipboard=unnamed
 nnoremap <c-n> :bn<cr>
 nnoremap <a-n> :bp<cr>
 
+" Grep word and show results in quick-fix window
+" set grepprg=internal
+:nnoremap <leader>g :execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>
+
 " => VIM user interface
-" set 0 lines to the cursors - when moving vertical..
+" Set 0 lines to the cursors - when moving vertical..
 set so=0
 
 set wildmenu "Turn on WiLd menu
@@ -133,10 +141,10 @@ set synmaxcol=120   "http://stackoverflow.com/questions/901313/editing-xml-files
 
 " Fast switch to preferred colorschemes.
 nnoremap <leader>sc :SetColors my<cr>
-nnoremap <leader>c :call NextColor(0)<cr>
+nnoremap <leader>nc :call NextColor(0)<cr>
 
 " Set current favourite colorscheme
-:colorscheme xoria256
+colorscheme xoria256
 
 " Set current favourite font
 if has ("gui_running")
@@ -163,108 +171,53 @@ catch
 endtry
 
 " => Visual mode related
-" Really useful!
-"  In visual mode when you press * or # to search for the current selection
-vnoremap <silent> * :call VisualSearch('f')<cr>
-vnoremap <silent> # :call VisualSearch('b')<cr>
-
-" When you press gv you vimgrep after the selected text
-vnoremap <silent> gv :call VisualSearch('gv')<cr>
-noremap <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left>
-
-" From an idea by Michael Naumann
-function! VisualSearch(direction) range
-  let l:saved_reg = @"
-  execute "normal! vgvy"
-
-  let l:pattern = escape(@", '\\/.*$^~[]')
-  let l:pattern = substitute(l:pattern, "\n$", "", "")
-
-  if a:direction == 'b'
-    execute "normal ?" . l:pattern . "^M"
-  elseif a:direction == 'gv'
-    call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
-  elseif a:direction == 'f'
-    execute "normal /" . l:pattern . "^M"
-  endif
-
-  let @/ = l:pattern
-  let @" = l:saved_reg
-endfunction
 
 " => Buffers, Windows
 " Smart way to move btw. windows
-noremap <c-j> <c-w>j
-noremap <c-k> <c-w>k
-noremap <c-h> <c-w>h
-noremap <c-l> <c-w>l
-
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-h> <c-w>h
+map <c-l> <c-w>l
 " Close the current buffer
-noremap <leader>bd :Bclose<cr>
-
+map <leader>bd :Bclose<cr>
 " Close all the buffers (No warnings)
-noremap <leader>ba :1,300 bd!<cr>
-
-" Tab configuration
-noremap <leader>tn :tabnew<cr>
-noremap <leader>te :tabedit
-noremap <leader>tc :tabclose<cr>
-noremap <leader>tm :tabmove
-noremap <c-tab> :tabn<cr>
-
+map <leader>ba :1,300 bd!<cr>
 " When pressing <leader>cd switch to the directory of the open buffer
-noremap <leader>cd :cd %:p:h<cr>
-
+map <leader>cd :cd %:p:h<cr>
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
   let l:currentBufNum = bufnr("%")
   let l:alternateBufNum = bufnr("#")
-
   if buflisted(l:alternateBufNum)
     buffer #
   else
     bnext
   endif
-
   if bufnr("%") == l:currentBufNum
     new
   endif
-
   if buflisted(l:currentBufNum)
     execute("bdelete! ".l:currentBufNum)
   endif
 endfunction
-
 " Specify the behavior when switching between buffers
 try
   set switchbuf=usetab
   set stal=2
 catch
 endtry
-
 " Make gf find Delphi files.
 set sua+=.pas,.dfm,.dpr
-
-" Open files in vertical/horizontal window
-":nnoremap gfv :vertical wincmd f<cr>
-":nnoremap gfh :wincmd f<cr>
-
-nnoremap <silent> <Leader>df :call DiffToggle()<CR>
-
-function! DiffToggle()
-    if &diff
-        diffoff
-    else
-        diffthis
-    endif
-:endfunction
-
 " => Statusline
 " Always hide the statusline
 set laststatus=2
 
 " Format the statusline
-set statusline=\ [%{HasPaste()}%F%m%r%h\%w]\ [Line:\ %l/%L:%c]\ [Format=%{&ff}]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [CWD:\ %r%{getcwd()}%h]
+set statusline=[%{HasPaste()}%F%m%r%h\%w]  " Current file
+set statusline+=\ [Line:\ %l/%L:%c]        " Current line/Total lines: Current column
+set statusline+=\ [\%03.3b-0x\%02.2B]      " Ascii & Hex value of current char under cursor
+set statusline+=\ [%r%{getcwd()}%h]        " Current directory
+set statusline+=\ [Format=%{&ff}]          " Encoding
 
 function! HasPaste()
   if &paste

@@ -92,7 +92,7 @@ nnoremap <a-n> :bp<cr>
 
 " Grep word and show results in quick-fix window
 " set grepprg=internal
-:nnoremap <leader>g :execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>
+nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " *.*"<cr>:copen<cr>
 
 " => VIM user interface
 " Set 0 lines to the cursors - when moving vertical..

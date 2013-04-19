@@ -59,8 +59,11 @@ let g:mapleader = ","
 let maplocalleader = ","
 let g:maplocalleader = ","
 
-" Search results to new buffer window
-nnoremap <F3> :redir @a<cr>:g//<cr>:redir END<cr>:new<cr>:put! a<cr><cr>
+" Search current word under cursor to new buffer window
+nnoremap <F3> :redir @a<cr>:silent g//<cr>:redir END<cr>:new<cr>:put! a<cr>
+
+" Grep word and show results in quick-fix window
+nnoremap <leader>g :execute "grep! -R " . shellescape(expand("<cWORD>")) . " *.*"<cr>
 
 " Search and replace word under cursor
 nnoremap <F4> :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i
@@ -69,10 +72,10 @@ nnoremap <F4> :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i
 nnoremap <c-cr> i<cr><esc>
 
 " Fast editing and sourcing of the .vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>sv :so $MYVIMRC<cr>
 
-" Press kj to exit insert mode.
+" Replace <esc> with kj
 inoremap kj <esc>
 " The trick to relearning a mapping is to *force* yourself to use it by *disabling* the old key(s).
 inoremap <esc> <nop>
@@ -90,9 +93,8 @@ set clipboard=unnamed
 nnoremap <c-n> :bn<cr>
 nnoremap <a-n> :bp<cr>
 
-" Grep word and show results in quick-fix window
-" set grepprg=internal
-nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " *.*"<cr>:copen<cr>
+" Populate the prompt with all loaded buffers and wait for a buffer to select
+nnoremap <leader>b :ls<cr>:b<space>
 
 " => VIM user interface
 " Set 0 lines to the cursors - when moving vertical..
@@ -262,8 +264,6 @@ let MRU_Exclude_Files = '\v\.(exe|so|dll|dcu|\~\w*)$|\v[\/]\.(git|hg|svn|dcu|\~\
 let MRU_Window_Height = 15
 
 
-" => bufExplorer
-nnoremap <leader>b :BufExplorer<cr>
 
 " => Load local settings
 if has('unix') || has('macunix')

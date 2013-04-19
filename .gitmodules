@@ -50,10 +50,6 @@
   path = vim73/bundle/vim-scriptease.git
   url = https://github.com/tpope/vim-scriptease.git
   ignore=dirty
-[submodule "vim73/bundle/vim-buffergator.git"]
-  path = vim73/bundle/vim-buffergator.git
-  url = https://github.com/jeetsukumaran/vim-buffergator.git
-  ignore=dirty
 [submodule "vim73/bundle/mru.vim.git"]
   path = vim73/bundle/mru.vim.git
   url = https://github.com/vim-scripts/mru.vim.git

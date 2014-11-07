@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='ftp://kelie@BOF_SIC//SIC//cims//sql//'
+let g:netrw_dirhist_2='ftp://kelie@UNI_SIM//home//kelie//'
+let g:netrw_dirhist_3='C:/My/vim/vim74'
+let g:netrw_dirhist_4='C:/Users/kelie'
+let g:netrw_dirhist_5='C:/My/vim'
+let g:netrw_dirhist_6='ftp://kelie@BOF_ACC//ACC/cims//log//'
+let g:netrw_dirhist_7='ftp://kelie@BOF_ACC//ACC/cims//sh//'

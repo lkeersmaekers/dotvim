@@ -320,6 +320,9 @@ else
     if $USERPROFILE != ''
       let localvimrc = $USERPROFILE . '\_vimrc.local'
     endif
+
+    " Open Windows explorer with current buffer selected
+    nnoremap <F11> :!start explorer /select,%:p<cr>
   endif
 
   " ssh still required? 
@@ -340,6 +343,7 @@ if filereadable(expand('$VIM/../Windbg Quick Reference.txt'))
   " Fast editing of the WinDbg Quickreference
   map <leader>ewq :e! $VIM/../Windbg Quick Reference.txt<cr>
 endif
+
 if filereadable(expand('$VIM/../Windbg_Readme.txt'))
   " Fast editing of the WinDbg Readme
   map <leader>ewr :e! $VIM/../Windbg_Readme.txt<cr>
@@ -350,6 +354,10 @@ if filereadable(expand('$VIM/../debuggers/cmdtree.txt'))
   map <leader>ewc :e! $VIM/../debuggers/cmdtree.txt<cr>
 endif
 
+if filereadable(expand('$VIM/../eclipse-jee-luna/EclipseTips.txt'))
+  " Fast editing of the cmdtree
+  map <leader>ej :e! $VIM/../eclipse-jee-luna/EclipseTips.txt<cr>
+endif
 
 " => Maximize window {{{2
 if has('gui_running') && has('win32')

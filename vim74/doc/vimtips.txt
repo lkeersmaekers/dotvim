@@ -202,29 +202,32 @@ vimtip-best-substitution* /*<<<*/ ~
 
 ---------------------------------------- /*>>>*/
 vimtip-best-global command  /*<<<*/ ~
-:g/gladiolli/#              : display with line numbers (YOU WANT THIS!)
-:g/fred.*joe.*dick/         : display all lines fred,joe & dick
-:g/\<fred\>/                : display all lines fred but not freddy
-:g/^\s*$/d                  : delete all blank lines
-:g!/^dd/d                   : delete lines not containing string
-:v/^dd/d                    : delete lines not containing string
-:g/joe/,/fred/d             : not line based (very powerfull)
-:g/fred/,/joe/j             : Join Lines [N]
-:g/-------/.-10,.d          : Delete string & 10 previous lines
-:g/{/ ,/}/- s/\n\+/\r/g     : Delete empty lines but only between {...}
-:v/\S/d                     : Delete empty lines (and blank lines ie whitespace)
-:v/./,/./-j                 : compress empty lines
-:g/^$/,/./-j                : compress empty lines
-:g/<input\|<form/p          : ORing
-:g/^/put_                   : double space file (pu = put)
-:g/^/m0                     : Reverse file (m = move)
-:g/^/m$                     : No effect! [N]
-:'a,'bg/^/m'b               : Reverse a section a to b
-:g/^/t.                     : duplicate every line
-:g/fred/t$                  : copy (transfer) lines matching fred to EOF
-:g/stage/t'a                : copy (transfer) lines matching stage to marker a (cannot use .) [C]
-:g/^Chapter/t.|s/./-/g      : Automatically underline selecting headings [N]
-:g/\(^I[^^I]*\)\{80}/d      : delete all lines containing at least 80 tabs
+:g/gladiolli/#                        : display with line numbers (YOU WANT THIS!)
+:g/fred.*joe.*dick/                   : display all lines fred,joe & dick
+:g/\<fred\>/                          : display all lines fred but not freddy
+:g/^\s*$/d                            : delete all blank lines
+:g!/^dd/d                             : delete lines not containing string
+:v/^dd/d                              : delete lines not containing string
+:g/joe/,/fred/d                       : not line based (very powerfull)
+:g/fred/,/joe/j                       : Join Lines [N]
+:g/-------/.-10,.d                    : Delete string & 10 previous lines
+:g/{/ ,/}/- s/\n\+/\r/g               : Delete empty lines but only between {...}
+:v/\S/d                               : Delete empty lines (and blank lines ie whitespace)
+:v/./,/./-j                           : compress empty lines
+:g/^$/,/./-j                          : compress empty lines
+:g/<input\|<form/p                    : ORing
+:g/^/put_                             : double space file (pu = put)
+:g/^/m0                               : Reverse file (m = move)
+:g/^/m$                               : No effect! [N]
+:'a,'bg/^/m'b                         : Reverse a section a to b
+:g/^/t.                               : duplicate every line
+:g/fred/t$                            : copy (transfer) lines matching fred to EOF
+:g/stage/t'a                          : copy (transfer) lines matching stage to marker a (cannot use .) [C]
+:g/^Chapter/t.|s/./-/g                : Automatically underline selecting headings [N]
+:g/\(^I[^^I]*\)\{80}/d                : delete all lines containing at least 80 tabs
+:g//norm gnx0P                        : Visually select search match and cut and paste it to the front of the line (Lieven)
+:let @a=''|g/^/if (line('.')%2)|y A   : Copy each uneven line into register A (Lieven)
+:g/^/if (line('.')%2)|co $            : Copy each uneven line to the end of the buffer (Lieven)
 
 " perform a substitute on every other line
 :g/^/ if line('.')%2|s/^/zz / 

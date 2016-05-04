@@ -58,6 +58,10 @@ using rexexp memory in a search find fred.*joe.*joe.*fred *C*~
 " multiple file search better but cheating
 :bufdo %s/searchstr/&/gic   : say n and then a to stop
 
+" opens search results in quickfix window (Lieven)
+" http://stackoverflow.com/questions/11975174/how-do-i-search-the-open-buffers-in-vim
+:noautocmd bufdo vimgrepadd searchstr % | copen
+
 " How to search for a URL without backslashing
 ?http://www.vim.org/        : (first) search BACKWARDS!!! clever huh!
 
@@ -1187,3 +1191,8 @@ endif
 *vimtip-just-another-vim-hacker-javh* /*<<<*/ ~
 vim -c ":%s%s*%Cyrnfr)fcbafbe[Oenz(Zbbyranne%|:%s)[[()])-)Ig|norm Vg?"
 ----------------------------------------/*>>>*/
+*Lieven* /*<<<*/ ~
+:pu! =map(range(1,30), 'printf(''scraper%02d.nj.company.com'', v:val)')  : Create 30 lines with autonumbering
+:pu! =map(range(1,30), 'v:val')  : Create 30 lines with autonumbering
+:pu! =map(range(30), 'v:val')  : Create 30 lines with autonumbering, starting from 0
+:pu! =map(range(0,30,3), 'v:val')  : Create 10 lines with table of three 

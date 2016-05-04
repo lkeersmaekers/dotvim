@@ -1,11 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='C:/privatews/sources/be.argenta.stpleven/REL_2015R2_Tak44/environmentConfig'
-let g:netrw_dirhist_2='C:/Users/kelie'
-let g:netrw_dirhist_3='C:/temp'
-let g:netrw_dirhist_4='ftp://kelie@BOF_SIM//SIM//cims//logs//'
-let g:netrw_dirhist_5='ftp://kelie@BOF_SIM//SIM//cims//'
-let g:netrw_dirhist_6='ftp://kelie@BOF_SIM//SIM//cims//log/'
-let g:netrw_dirhist_7='C:/Users/kelie'
-let g:netrw_dirhist_8='//sv-arg-stp-p1/d$/ul3acc/scripts/RUN'
-let g:netrw_dirhist_9='ftp://kelie@BOF_SIM//SIM//cims//log//'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='ftp://kelie@UNI_PRD//PRD/BACKUP/week/'
+let g:netrw_dirhist_2='ftp://kelie@UNI_PRD//PRD/BACKUP/dag/'
+let g:netrw_dirhist_3='ftp://kelie@UNI_PRD//PRD/BACKUP/cumul/'
+let g:netrw_dirhist_4='ftp://kelie@UNI_PRD//PRD//cola/data/'
+let g:netrw_dirhist_5='ftp://kelie@UNI_PRD//PRD//cola/data/CABACKUP/'

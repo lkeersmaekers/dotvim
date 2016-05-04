@@ -49,7 +49,15 @@ set nu         " Show linnumbers
 iabbrev @@ lieven@iwega.be
 iabbrev ssig <cr>Lieven Keersmaekers<cr>lieven@iwega.be
 
-" Common typo's
+" Folding methods
+let javaScript_fold=1         " JavaScript
+let perl_fold=1               " Perl
+let php_folding=1             " PHP
+let r_syntax_folding=1        " R
+let ruby_fold=1               " Ruby
+let sh_fold_enabled=1         " sh
+let vimsyn_folding='af'       " Vim script
+let xml_syntax_folding=1      " XML
 
 " => General {{{2
 " Sets how many lines of history VIM has to remember
@@ -125,8 +133,8 @@ cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
 " Switch to hex mode
-nnoremap <Leader>hn :%!xxd<CR>
-nnoremap <Leader>hf :%!xxd -r<CR>
+nnoremap <Leader>hex :%!xxd<CR>
+nnoremap <Leader>nhex :%!xxd -r<CR>
 
 " => VIM user interface {{{2
 " Set 0 lines to the cursors - when moving vertical..

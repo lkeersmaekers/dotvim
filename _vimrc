@@ -59,6 +59,14 @@ let sh_fold_enabled=1         " sh
 let vimsyn_folding='af'       " Vim script
 let xml_syntax_folding=1      " XML
 
+" Creates 26 new text-objects -- http://stackoverflow.com/a/44109750/52598
+for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '%', '-', '#' ]
+    execute 'xnoremap i' . char . ' :<C-u>normal! T' . char . 'vt' . char . '<CR>'
+    execute 'onoremap i' . char . ' :normal vi' . char . '<CR>'
+    execute 'xnoremap a' . char . ' :<C-u>normal! F' . char . 'vf' . char . '<CR>'
+    execute 'onoremap a' . char . ' :normal va' . char . '<CR>'
+endfor
+
 " => General {{{2
 " Sets how many lines of history VIM has to remember
 set history=999
@@ -141,6 +149,8 @@ nnoremap <Leader>nhex :%!xxd -r<CR>
 set so=0
 
 set wildmenu "Turn on WiLd menu
+set wildmode=longest:full,full
+set wildignore+=.svn;.idea;*.class
 
 set ruler "Always show current position
 
@@ -228,6 +238,15 @@ endtry
 " Explore settings. Refresh folder with netrw-ctrl-l
 "  fast directory browsing; only obtains directory listings when the directory hasn't been seen before 
 let g:netrw_fastbrowse=2
+
+" Paste current filename
+inoremap ,fn <c-r>=expand('%:p')<cr>
+nnoremap <leader>fn :put =expand('%:p')<cr>
+
+" Current filename to clipboard
+nnoremap <leader>fc :let @*=expand('%:p')<cr>
+
+
 " => Visual mode related {{{2
 
 " => Buffers, Windows {{{2
@@ -385,3 +404,6 @@ if has("win32")
   nnoremap <leader>cmd :set shell=cmd shellcmdflag=/c shellquote= shellxquote=(<cr>
   nnoremap <leader>cmdp :set shell=powershell shellcmdflag=-c shellquote=\" shellxquote=<cr>
 endif
+
+" => Execute current line in shell
+nnoremap <F6> :exec '$!'.getline('.')<CR>

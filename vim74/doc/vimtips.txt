@@ -206,32 +206,36 @@ vimtip-best-substitution* /*<<<*/ ~
 
 ---------------------------------------- /*>>>*/
 vimtip-best-global command  /*<<<*/ ~
-:g/gladiolli/#                        : display with line numbers (YOU WANT THIS!)
-:g/fred.*joe.*dick/                   : display all lines fred,joe & dick
-:g/\<fred\>/                          : display all lines fred but not freddy
-:g/^\s*$/d                            : delete all blank lines
-:g!/^dd/d                             : delete lines not containing string
-:v/^dd/d                              : delete lines not containing string
-:g/joe/,/fred/d                       : not line based (very powerfull)
-:g/fred/,/joe/j                       : Join Lines [N]
-:g/-------/.-10,.d                    : Delete string & 10 previous lines
-:g/{/ ,/}/- s/\n\+/\r/g               : Delete empty lines but only between {...}
-:v/\S/d                               : Delete empty lines (and blank lines ie whitespace)
-:v/./,/./-j                           : compress empty lines
-:g/^$/,/./-j                          : compress empty lines
-:g/<input\|<form/p                    : ORing
-:g/^/put_                             : double space file (pu = put)
-:g/^/m0                               : Reverse file (m = move)
-:g/^/m$                               : No effect! [N]
-:'a,'bg/^/m'b                         : Reverse a section a to b
-:g/^/t.                               : duplicate every line
-:g/fred/t$                            : copy (transfer) lines matching fred to EOF
-:g/stage/t'a                          : copy (transfer) lines matching stage to marker a (cannot use .) [C]
-:g/^Chapter/t.|s/./-/g                : Automatically underline selecting headings [N]
-:g/\(^I[^^I]*\)\{80}/d                : delete all lines containing at least 80 tabs
-:g//norm gnx0P                        : Visually select search match and cut and paste it to the front of the line (Lieven)
-:let @a=''|g/^/if (line('.')%2)|y A   : Copy each uneven line into register A (Lieven)
-:g/^/if (line('.')%2)|co $            : Copy each uneven line to the end of the buffer (Lieven)
+:g/gladiolli/#                                                                                 : display with line numbers (YOU WANT THIS!)                                                                                                 
+:g/fred.*joe.*dick/                                                                            : display all lines fred,joe & dick                                                                                                          
+:g/\<fred\>/                                                                                   : display all lines fred but not freddy                                                                                                      
+:g/^\s*$/d                                                                                     : delete all blank lines                                                                                                                     
+:g!/^dd/d                                                                                      : delete lines not containing string                                                                                                         
+:v/^dd/d                                                                                       : delete lines not containing string                                                                                                         
+:g/joe/,/fred/d                                                                                : not line based (very powerfull)                                                                                                            
+:g/fred/,/joe/j                                                                                : Join Lines [N]                                                                                                                             
+:g/-------/.-10,.d                                                                             : Delete string & 10 previous lines                                                                                                          
+:g/{/ ,/}/- s/\n\+/\r/g                                                                        : Delete empty lines but only between {...}                                                                                                  
+:v/\S/d                                                                                        : Delete empty lines (and blank lines ie whitespace)                                                                                         
+:v/./,/./-j                                                                                    : compress empty lines                                                                                                                       
+:g/^$/,/./-j                                                                                   : compress empty lines                                                                                                                       
+:g/<input\|<form/p                                                                             : ORing                                                                                                                                      
+:g/^/put_                                                                                      : double space file (pu = put)                                                                                                               
+:g/^/m0                                                                                        : Reverse file (m = move)                                                                                                                    
+:g/^/m$                                                                                        : No effect! [N]                                                                                                                             
+:'a,'bg/^/m'b                                                                                  : Reverse a section a to b                                                                                                                   
+:g/^/t.                                                                                        : duplicate every line                                                                                                                       
+:g/fred/t$                                                                                     : copy (transfer) lines matching fred to EOF                                                                                                 
+:g/stage/t'a                                                                                   : copy (transfer) lines matching stage to marker a (cannot use .) [C]                                                                        
+:g/^Chapter/t.|s/./-/g                                                                         : Automatically underline selecting headings [N]                                                                                             
+:g/\(^I[^^I]*\)\{80}/d                                                                         : delete all lines containing at least 80 tabs                                                                                               
+:g//norm gnx0P                                                                                 : Visually select search match and cut and paste it to the front of the line (Lieven)                                                        
+:let @a=''|g/^/if (line('.')%2)|y A                                                            : Copy each uneven line into register A (Lieven)                                                                                             
+:g/^/if (line('.')%2)|co $                                                                     : Copy each uneven line to the end of the buffer (Lieven)                                                                                    
+:g/<input>/execute '+1,+2s/^/'.matchstr(getline('.'),'\d$').' &'                               : How to use a match from a global command in a range following the match (Lieven)                                                           
+                                                                                                 Alternative using a substitute :s/\v(\d).*\n\s+\zs/\1" (http://stackoverflow.com/q/41018552/52598) 
+:g/^\s\+/let d=split(getline(line('.')-1),'/')|s##\=join(d[:strlen(submatch(0))/2-1],'/').'/'  : (http://stackoverflow.com/a/42540905/52598)
+                                                                                                 Alternative using a substitute :%s#^\s\+#\=join(split(getline(line('.')-1),'/')[:strlen(submatch(0))/2-1],'/').'/'
 
 " perform a substitute on every other line
 :g/^/ if line('.')%2|s/^/zz / 
@@ -898,6 +902,9 @@ inserting line number into file/*<<<*/ ~
 :g/^/exec "s/^/".strpart(line(".")."    ", 0, 4)
 :%s/^/\=strpart(line(".")."     ", 0, 5)
 :%s/^/\=line('.'). ' '
+:%s//\=line(".")+1234 (Lieven)
+:'<,'>s/$/\="\n".'MyLogging.Writeln "'.line('.').'"'/gc : Adding MyLogging.Writeln statements to selected range of text (Lieven)
+%s/mylogging.writeln "/\=submatch(0)."linenumber:".line('.')/gc : Adding linenumbers to mylogging.writeln's (Lieven)
 
 ----------------------------------------/*>>>*/
 *vimtip-numbering-lines-vim-way* /*<<<*/ ~
@@ -1196,3 +1203,7 @@ vim -c ":%s%s*%Cyrnfr)fcbafbe[Oenz(Zbbyranne%|:%s)[[()])-)Ig|norm Vg?"
 :pu! =map(range(1,30), 'v:val')  : Create 30 lines with autonumbering
 :pu! =map(range(30), 'v:val')  : Create 30 lines with autonumbering, starting from 0
 :pu! =map(range(0,30,3), 'v:val')  : Create 10 lines with table of three 
+
+*Lieven append line* /*<<<*/ ~
+Go         normal mode
+:$pu _     command mode

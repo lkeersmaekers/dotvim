@@ -1,7 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='ftp://kelie@UNI_PRD//PRD/BACKUP/week/'
-let g:netrw_dirhist_2='ftp://kelie@UNI_PRD//PRD/BACKUP/dag/'
-let g:netrw_dirhist_3='ftp://kelie@UNI_PRD//PRD/BACKUP/cumul/'
-let g:netrw_dirhist_4='ftp://kelie@UNI_PRD//PRD//cola/data/'
-let g:netrw_dirhist_5='ftp://kelie@UNI_PRD//PRD//cola/data/CABACKUP/'
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='ftp://kelie@UNI_SIM//home/kelie/'
+let g:netrw_dirhist_2='ftp://kelie@UNI_SIM//'
+let g:netrw_dirhist_3='ftp://kelie@UNI_SIM//home/'
+let g:netrw_dirhist_4='ftp://kelie@UNI_SIM//home/kelie/'
+let g:netrw_dirhist_5='C:/Users/kelie/AppData/Local/Temp'
+let g:netrw_dirhist_6='ftp://kelie@UNI_PRD//home/kelie/'

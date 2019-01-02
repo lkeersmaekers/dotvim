@@ -1,8 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='ftp://kelie@UNI_SIM//home/kelie/'
-let g:netrw_dirhist_2='ftp://kelie@UNI_SIM//'
-let g:netrw_dirhist_3='ftp://kelie@UNI_SIM//home/'
-let g:netrw_dirhist_4='ftp://kelie@UNI_SIM//home/kelie/'
-let g:netrw_dirhist_5='C:/Users/kelie/AppData/Local/Temp'
-let g:netrw_dirhist_6='ftp://kelie@UNI_PRD//home/kelie/'
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='ftp://kelie@BOF_PRD//PRD/'
+let g:netrw_dirhist_2='ftp://kelie@BOF_PRD//PRD//'

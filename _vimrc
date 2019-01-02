@@ -114,7 +114,8 @@ nnoremap <leader>evt :e! $VIMRUNTIME/doc/vimtips.txt<cr>
 " Replace <esc> with kj
 inoremap kj <esc>
 " The trick to relearning a mapping is to *force* yourself to use it by *disabling* the old key(s).
-inoremap <esc> <nop>
+" note: disabled because when using :norm, I'd like to use <c-v><esc> combination io kj 
+" inoremap <esc> <nop>
 
 " Show the cursorline
 set cursorline

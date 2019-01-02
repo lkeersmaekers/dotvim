@@ -13,8 +13,8 @@
 [submodule "vim81/pack/my-plugins/start/vim-surround"]
 	path = vim81/pack/my-plugins/start/vim-surround
 	url = https://github.com/tpope/vim-surround
-[submodule "vim81/pack/my-plugins/vim-textobj-entire.git"]
-	path = vim81/pack/my-plugins/vim-textobj-entire.git
+[submodule "vim81/pack/my-plugins/start/vim-textobj-entire.git"]
+	path = vim81/pack/my-plugins/start/vim-textobj-entire.git
 	url = https://github.com/kana/vim-textobj-entire.git
 [submodule "vim81/pack/my-plugins/start/vim-textobj-user.git"]
 	path = vim81/pack/my-plugins/start/vim-textobj-user.git

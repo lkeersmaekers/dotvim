@@ -1,6 +1,6 @@
 " vim: set foldmarker={{{,}}} foldlevel=1 foldmethod=marker foldcolumn=5:"
 " Sections: {{{1
-"    -> Pathogen
+"    -> Packages
 "    -> Text, tab and indent related
 "    -> General
 "    -> VIM user interface
@@ -13,12 +13,9 @@
 "    -> General Abbrevs
 "    -> Editing mappings}}}
 
-" => Pathogen {{{2
-if has ("gui_win32")
-  runtime bundle/vim-pathogen.git/autoload/pathogen.vim
-  call pathogen#infect()
-  call pathogen#helptags()
-endif
+" => Packages {{{2
+packadd! editexisting
+packadd! matchit
 
 " => Text, tab and indent related {{{2
 "    Note: Other settings are reset by setting nocp. Make sure it is first to execute
@@ -260,7 +257,7 @@ noremap <c-l> <c-w>l
 " Close the current buffer
 noremap <leader>bd :Bclose<cr>
 " Close all the buffers (No warnings)
-noremap <leader>ba :1,300 bd!<cr>
+noremap <leader>ba :%bd!<cr>
 " When pressing <leader>cd switch to the directory of the open buffer
 noremap <leader>cd :cd %:p:h<cr>
 command! Bclose call <SID>BufcloseCloseIt()

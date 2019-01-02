@@ -40,3 +40,6 @@
 [submodule "vim81/pack/my-plugins/start/mru.vim"]
 	path = vim81/pack/my-plugins/start/mru.vim
 	url = https://github.com/inkarkat/mru
+[submodule "vim81/pack/my-plugins/start/setcolors.vim"]
+	path = vim81/pack/my-plugins/start/setcolors.vim
+	url = https://github.com/felixhummel/setcolors.vim

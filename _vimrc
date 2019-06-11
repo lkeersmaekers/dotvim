@@ -364,12 +364,12 @@ endif
 
 " Should be in principle in _vimrc.local but as I carry the "my" folder with me everywhere, 
 " I know "I" always want this without having to add it to each local vimrc
-if filereadable(expand('$VIM/../Windbg Quick Reference.txt'))
+if filereadable(expand('$VIM/../Windbg_snippets/Windbg Quick Reference.txt'))
   " Fast editing of the WinDbg Quickreference
   map <leader>ewq :e! $VIM/../Windbg Quick Reference.txt<cr>
 endif
 
-if filereadable(expand('$VIM/../Windbg_Readme.txt'))
+if filereadable(expand('$VIM/../Windbg_snippets/Windbg_Readme.txt'))
   " Fast editing of the WinDbg Readme
   map <leader>ewr :e! $VIM/../Windbg_Readme.txt<cr>
 endif

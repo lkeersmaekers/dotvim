@@ -366,12 +366,12 @@ endif
 " I know "I" always want this without having to add it to each local vimrc
 if filereadable(expand('$VIM/../Windbg_snippets/Windbg Quick Reference.txt'))
   " Fast editing of the WinDbg Quickreference
-  map <leader>ewq :e! $VIM/../Windbg Quick Reference.txt<cr>
+  map <leader>ewq :e! $VIM/../Windbg_snippets/Windbg Quick Reference.txt<cr>
 endif
 
 if filereadable(expand('$VIM/../Windbg_snippets/Windbg_Readme.txt'))
   " Fast editing of the WinDbg Readme
-  map <leader>ewr :e! $VIM/../Windbg_Readme.txt<cr>
+  map <leader>ewr :e! $VIM/../Windbg_snippets/Windbg_Readme.txt<cr>
 endif
 
 if filereadable(expand('$VIM/../debuggers/cmdtree.txt'))

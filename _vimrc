@@ -241,6 +241,8 @@ let g:netrw_fastbrowse=2
 let g:netrw_browse_split=4
 " 3: tree style listing
 let g:netrw_liststyle= 3
+" Open browser window in vertical split
+nnoremap <leader>ex :vert 50sp.<cr>
 
 " Paste current filename
 inoremap ,fn <c-r>=expand('%:p')<cr>
@@ -248,7 +250,6 @@ nnoremap <leader>fn :put =expand('%:p')<cr>
 
 " Current filename to clipboard
 nnoremap <leader>fc :let @*=expand('%:p')<cr>
-
 
 " => Visual mode related {{{2
 

@@ -313,6 +313,9 @@ vnoremap <m-k> :m'<-2<cr>`>my`<mzgv`yo`z
 "  This will check the current folder for tags file and keep going on directory up all the way to the root folder to
 "  find a tags file.
 set tags=tags;/
+" https://stackoverflow.com/a/6349262/52598
+" you can use :tag <filename> to jump to the file
+nnoremap <Leader>ct :! ctags -R --extra=f<CR>
 
 " => Fugitive {{{2
 nnoremap <leader>gs :Gstatus<cr>

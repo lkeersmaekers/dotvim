@@ -26,6 +26,7 @@ set sts=2        " softtabstop
 set ts=2         " tabstop
 set sta          " smarttab
 set nowrap
+set nowrapscan
 set lbr          " linebreak
 set tw=500       " textwidth
 set ai           " Auto indent
@@ -236,6 +237,10 @@ endtry
 " Explore settings. Refresh folder with netrw-ctrl-l
 "  fast directory browsing; only obtains directory listings when the directory hasn't been seen before 
 let g:netrw_fastbrowse=2
+" <cr> open file in previous window (like 'P')
+let g:netrw_browse_split=4
+" 3: tree style listing
+let g:netrw_liststyle= 3
 
 " Paste current filename
 inoremap ,fn <c-r>=expand('%:p')<cr>

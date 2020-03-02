@@ -112,7 +112,7 @@ nnoremap <leader>evt :e! $VIMRUNTIME/doc/vimtips.txt<cr>
 " Replace <esc> with kj
 inoremap kj <esc>
 " The trick to relearning a mapping is to *force* yourself to use it by *disabling* the old key(s).
-" note: disabled because when using :norm, I'd like to use <c-v><esc> combination io kj 
+" note: disabled because when using :norm, I'd like to use <c-v><esc> combination io kj
 " inoremap <esc> <nop>
 
 " Show the cursorline
@@ -233,14 +233,14 @@ catch
 endtry
 
 " Explore settings. Refresh folder with netrw-ctrl-l
-"  fast directory browsing; only obtains directory listings when the directory hasn't been seen before 
+"  fast directory browsing; only obtains directory listings when the directory hasn't been seen before
 let g:netrw_fastbrowse=2
 " <cr> open file in previous window (like 'P')
 let g:netrw_browse_split=4
 " 3: tree style listing
 let g:netrw_liststyle= 3
 " Open browser window in vertical split
-nnoremap <leader>ex :vert 50sp.<cr>
+nnoremap <leader>br :vert 50sp.<cr>
 
 " Paste current filename
 inoremap ,fn <c-r>=expand('%:p')<cr>
@@ -355,7 +355,7 @@ else
     nnoremap <F11> :!start explorer /select,%:p<cr>
   endif
 
-  " ssh still required? 
+  " ssh still required?
   let g:netrw_scp_cmd = '"c:\Program Files (x86)\PuTTY\pscp.exe" -q -batch'
   let g:netrw_sftp_cmd= '"c:\Program Files (x86)\PuTTY\psftp.exe"'
 endif
@@ -367,7 +367,7 @@ if filereadable(glob(localvimrc))
   execute ":noremap <leader>el :e! " . g:localvimrc ."<cr>"
 endif
 
-" Should be in principle in _vimrc.local but as I carry the "my" folder with me everywhere, 
+" Should be in principle in _vimrc.local but as I carry the "my" folder with me everywhere,
 " I know "I" always want this without having to add it to each local vimrc
 if filereadable(expand('$VIM/../Windbg_snippets/Windbg Quick Reference.txt'))
   " Fast editing of the WinDbg Quickreference

@@ -200,7 +200,6 @@ set synmaxcol=120   "http://stackoverflow.com/questions/901313/editing-xml-files
 nnoremap <leader>sc :SetColors my<cr>
 nnoremap <leader>nc :call NextColor(0)<cr>
 
-
 " Set current favourite font
 if has ("gui_running")
   if has ("gui_win32")
@@ -219,7 +218,6 @@ else
   colorscheme elflord
   set columns=200
 endif
-
 
 " => Files, backups and undo {{{2
 " Turn backup off, since most stuff is in SVN, git anyway...
@@ -342,8 +340,6 @@ let MRU_Exclude_Files = '\v\.(exe|so|dll|dcu|\~\w*)$|\v[\/]\.(git|hg|svn|dcu|\~\
 " Change the default window height
 let MRU_Window_Height = 15
 
-
-
 " => Load local settings {{{2
 if has('unix') || has('macunix')
   let localvimrc = $HOME . '/.vimrc.local'
@@ -388,12 +384,7 @@ if filereadable(expand('$VIM/../debuggers/cmdtree.txt'))
   map <leader>ewc :e! $VIM/../debuggers/cmdtree.txt<cr>
 endif
 
-if filereadable(expand('$VIM/../eclipse-jee-luna/EclipseTips.txt'))
-  " Fast editing of the cmdtree
-  map <leader>ej :e! $VIM/../eclipse-jee-luna/EclipseTips.txt<cr>
-endif
-
-" => Maximize window {{{2
+" => Maximize window on startup{{{2
 if has('gui_running') && has('win32')
   set guioptions-=T  " Exclude Toolbar
   set guioptions-=m  " Excluse Menu bar
@@ -411,6 +402,3 @@ if has("win32")
   nnoremap <leader>cmd :set shell=cmd shellcmdflag=/c shellquote= shellxquote=(<cr>
   nnoremap <leader>cmdp :set shell=powershell shellcmdflag=-c shellquote=\" shellxquote=<cr>
 endif
-
-" => Execute current line in shell
-nnoremap <F6> :exec '$!'.getline('.')<CR>

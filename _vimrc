@@ -14,6 +14,7 @@
 "    -> Editing mappings}}}
 
 " => Packages {{{2
+" :helptags ALL to generate help
 packadd! editexisting
 packadd! matchit
 
@@ -314,12 +315,14 @@ vnoremap <m-j> :m'>+<cr>`<my`>mzgv`yo`z
 vnoremap <m-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
 " => cTags {{{2
-"  This will check the current folder for tags file and keep going on directory up all the way to the root folder to
+"  This will check the current folder for tags file and keep going one directory up all the way to the root folder to
 "  find a tags file.
 set tags=tags;/
 " https://stackoverflow.com/a/6349262/52598
-" you can use :tag <filename> to jump to the file
+" Create tags. You can then use :tag <filename> to jump to the file
+" https://gist.github.com/MarkBorcherding/914528#gistcomment-1948571
 nnoremap <Leader>ct :! ctags -R --extra=f<CR>
+nnoremap <Leader>ctp :!  ctags -R --extra=f --langdef=Powershell --langmap=Powershell:.psm1.ps1 --regex-Powershell="/function\s+(script:)?([a-zA-Z\-]+)/\2/m, method/i" --regex-Powershell="/\s*\[.*\]\s*\$([a-zA-Z\-]+)/\1/v, variable/i" --regex-Powershell="/\$global:([a-zA-Z\-]+)/\1/v, globalvariable/i" --exclude=test<CR>
 
 " => Fugitive {{{2
 nnoremap <leader>gs :Gstatus<cr>

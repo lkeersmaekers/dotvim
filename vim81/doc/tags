@@ -1504,6 +1504,7 @@ $VIM_POSIX	vi_diff.txt	/*$VIM_POSIX*
 //	version7.txt	/*\/\/*
 //;	pattern.txt	/*\/\/;*
 /<CR>	pattern.txt	/*\/<CR>*
+/Content.IE?/	vimtips.txt	/*\/Content.IE?\/*
 /[[.	pattern.txt	/*\/[[.*
 /[[=	pattern.txt	/*\/[[=*
 /[\n]	pattern.txt	/*\/[\\n]*
@@ -3567,6 +3568,8 @@ BufWriteCmd	autocmd.txt	/*BufWriteCmd*
 BufWritePost	autocmd.txt	/*BufWritePost*
 BufWritePre	autocmd.txt	/*BufWritePre*
 C	change.txt	/*C*
+C	vimtips.txt	/*C*
+C	vimtips.txt	/*C*
 C-editing	tips.txt	/*C-editing*
 C-indenting	indent.txt	/*C-indenting*
 C89	develop.txt	/*C89*
@@ -4690,6 +4693,7 @@ KVim	gui_x11.txt	/*KVim*
 Kibaale	uganda.txt	/*Kibaale*
 Korean	mbyte.txt	/*Korean*
 L	motion.txt	/*L*
+Lieven	vimtips.txt	/*Lieven*
 Linux-backspace	options.txt	/*Linux-backspace*
 List	eval.txt	/*List*
 Lists	eval.txt	/*Lists*
@@ -4716,6 +4720,9 @@ Motif	gui_x11.txt	/*Motif*
 Myspell	spell.txt	/*Myspell*
 MzScheme	if_mzsch.txt	/*MzScheme*
 N	pattern.txt	/*N*
+N	vimtips.txt	/*N*
+N	vimtips.txt	/*N*
+N	vimtips.txt	/*N*
 N%	motion.txt	/*N%*
 N:	cmdline.txt	/*N:*
 N<Del>	various.txt	/*N<Del>*
@@ -9498,6 +9505,12 @@ vimrc-filetype	usr_05.txt	/*vimrc-filetype*
 vimrc-intro	usr_05.txt	/*vimrc-intro*
 vimrc-option-example	starting.txt	/*vimrc-option-example*
 vimrc_example.vim	usr_05.txt	/*vimrc_example.vim*
+vimtip-absolutely-essential	vimtips.txt	/*vimtip-absolutely-essential*
+vimtip-advanced-incrementing	vimtips.txt	/*vimtip-advanced-incrementing*
+vimtip-generate-a-list-of-numbers	vimtips.txt	/*vimtip-generate-a-list-of-numbers*
+vimtip-just-another-vim-hacker-javh	vimtips.txt	/*vimtip-just-another-vim-hacker-javh*
+vimtip-numbering-lines-vim-way	vimtips.txt	/*vimtip-numbering-lines-vim-way*
+vimtips.txt	vimtips.txt	/*vimtips.txt*
 vimtutor	usr_01.txt	/*vimtutor*
 virtcol()	eval.txt	/*virtcol()*
 visual-block	visual.txt	/*visual-block*

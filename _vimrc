@@ -20,23 +20,24 @@ packadd! matchit
 
 " => Text, tab and indent related {{{2
 "    Note: Other settings are reset by setting nocp. Make sure it is first to execute
-set nocp         " nocompatible
-set et           " expandtab
+set nocp                                                     " nocompatible
+set et                                                       " expandtab
 set shiftwidth=2
-set sts=2        " softtabstop
-set ts=2         " tabstop
-set sta          " smarttab
+set sts=2                                                    " softtabstop
+set ts=2                                                     " tabstop
+set sta                                                      " smarttab
 set nowrap
 set nowrapscan
-set lbr          " linebreak
-set tw=500       " textwidth
-set ai           " Auto indent
-set si           " Smart indent
+set lbr                                                      " linebreak
+set tw=500                                                   " textwidth
+set ai                                                       " Auto indent
+set si                                                       " Smart indent
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 set showbreak=ª
-set ve=all       " Virtual Edit
-set nosol        " Start of line (<c-g>G stays in same column)
+set ve=all                                                   " Virtual Edit
+set nosol                                                    " Start of line (<c-g>G stays in same column)
+set diffopt=filler,vertical
 
 " Environment specific settings
 if has ("gui_win32")
@@ -330,6 +331,7 @@ nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>ga :Gwrite<cr>
 nnoremap <leader>gl :Glog<cr>
 nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gb :Gblame<cr>
 
 " => Mru {{{2
 nnoremap <leader>m :MRU<cr>

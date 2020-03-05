@@ -61,10 +61,10 @@ let xml_syntax_folding=1      " XML
 
 " Creates 26 new text-objects -- http://stackoverflow.com/a/44109750/52598
 for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '%', '-', '#' ]
-    execute 'xnoremap i' . char . ' :<C-u>normal! T' . char . 'vt' . char . '<CR>'
-    execute 'onoremap i' . char . ' :normal vi' . char . '<CR>'
-    execute 'xnoremap a' . char . ' :<C-u>normal! F' . char . 'vf' . char . '<CR>'
-    execute 'onoremap a' . char . ' :normal va' . char . '<CR>'
+    execute 'xnoremap i' . char . ' :<C-u>normal! T' . char . 'vt' . char . '<cr>'
+    execute 'onoremap i' . char . ' :normal vi' . char . '<cr>'
+    execute 'xnoremap a' . char . ' :<C-u>normal! F' . char . 'vf' . char . '<cr>'
+    execute 'onoremap a' . char . ' :normal va' . char . '<cr>'
 endfor
 
 " => General {{{2
@@ -142,8 +142,8 @@ cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
 " Switch to hex mode
-nnoremap <Leader>hex :%!xxd<CR>
-nnoremap <Leader>nhex :%!xxd -r<CR>
+nnoremap <leader>hex :%!xxd<cr>
+nnoremap <leader>nhex :%!xxd -r<cr>
 
 " => VIM user interface {{{2
 " Set 0 lines to the cursors - when moving vertical..
@@ -322,8 +322,7 @@ set tags=tags;/
 " https://stackoverflow.com/a/6349262/52598
 " Create tags. You can then use :tag <filename> to jump to the file
 " https://gist.github.com/MarkBorcherding/914528#gistcomment-1948571
-nnoremap <Leader>ct :! ctags -R --extra=f<CR>
-nnoremap <Leader>ctp :!  ctags -R --extra=f --langdef=Powershell --langmap=Powershell:.psm1.ps1 --regex-Powershell="/function\s+(script:)?([a-zA-Z\-]+)/\2/m, method/i" --regex-Powershell="/\s*\[.*\]\s*\$([a-zA-Z\-]+)/\1/v, variable/i" --regex-Powershell="/\$global:([a-zA-Z\-]+)/\1/v, globalvariable/i" --exclude=test<CR>
+execute ":nnoremap <leader>ct :! ctags -R --extra=f --options=" . $VIMRUNTIME ."/ctags.cnf<cr>"
 
 " => Fugitive {{{2
 nnoremap <leader>gs :Gstatus<cr>

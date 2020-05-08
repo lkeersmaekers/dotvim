@@ -335,8 +335,8 @@ nnoremap <leader>gb :Gblame<cr>
 " Auto-clean fugitive buffers - http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
-" Add current branch to statusline
-set statusline+=\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
+" Add current branch to statusline (slows down hjkl A LOT)
+" set statusline+=\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
 
 " => Mru {{{2
 nnoremap <leader>m :MRU<cr>

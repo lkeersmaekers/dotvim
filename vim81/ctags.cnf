@@ -162,6 +162,10 @@
 --langmap=markdown:.md
 --regex-markdown=/^(#+[ \t]+.*)/\1/h,heading,headings/
 
+--langdef=XML
+--langmap=XML:.xml
+--regex-XML=/id="([a-zA-Z0-9_]+)"/\1/d,definition/
+
 --langmap=vim:+(vimrc)
 
 --exclude=.git
@@ -194,3 +198,4 @@
 --exclude=*bundle.*
 
 --sort=no
+

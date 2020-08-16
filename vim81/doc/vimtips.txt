@@ -232,7 +232,7 @@ vimtip-best-global command  /*<<<*/ ~
 :g//norm gnx0P                                                                                 : Visually select search match and cut and paste it to the front of the line (Lieven)
 :let @a=''|g/^/if (line('.')%2)|y A                                                            : Copy each uneven line into register A (Lieven)
 :g/^/if (line('.')%2)|co $                                                                     : Copy each uneven line to the end of the buffer (Lieven)
-:g/<input>/execute '+1,+2s/^/'.matchstr(getline('.'),'\d$').' &'                               : How to use a match from a global command in a range following the match (Lieven)
+:g/\d$/execute '+1,+2s/^/'.matchstr(getline('.'),'\d$').' &'                                   : How to use a match from a global command in a range following the match (Lieven)
                                                                                                  Alternative using a substitute :s/\v(\d).*\n\s+\zs/\1" (http://stackoverflow.com/q/41018552/52598)
 :g/^\s\+/let d=split(getline(line('.')-1),'/')|s##\=join(d[:strlen(submatch(0))/2-1],'/').'/'  : (http://stackoverflow.com/a/42540905/52598)
                                                                                                  Alternative using a substitute :%s#^\s\+#\=join(split(getline(line('.')-1),'/')[:strlen(submatch(0))/2-1],'/').'/'

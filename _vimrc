@@ -183,10 +183,10 @@ set t_vb=
 set tm=500
 
 " maximize current window
-noremap <F5> <c-w>_<c-w><Bar>
+nnoremap <F2> <c-w>_<c-w><Bar>
 
 " Normalize all windows
-noremap <F6> <c-w>=
+nnoremap <F3> <c-w>=
 
 " Resize windows
 nnoremap <kPlus>     :silent resize +2<cr>
@@ -412,3 +412,6 @@ if has("win32")
   nnoremap <leader>cmd :set shell=cmd shellcmdflag=/c shellquote= shellxquote=(<cr>
   nnoremap <leader>cmdp :set shell=powershell shellcmdflag=-c shellquote=\" shellxquote=<cr>
 endif
+
+" => Execute current line with current shell. {{{2
+nnoremap <F5> :exec '!'.getline('.')<cr>

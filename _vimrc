@@ -183,10 +183,10 @@ set t_vb=
 set tm=500
 
 " maximize current window
-nnoremap <F2> <c-w>_<c-w><Bar>
+nnoremap <F6> <c-w>_<c-w><Bar>
 
 " Normalize all windows
-nnoremap <F3> <c-w>=
+nnoremap <F7> <c-w>=
 
 " Resize windows
 nnoremap <kPlus>     :silent resize +2<cr>
@@ -414,4 +414,4 @@ if has("win32")
 endif
 
 " => Execute current line with current shell. {{{2
-nnoremap <F5> :exec '!'.getline('.')<cr>
+nnoremap <F8> :exec '!'.getline('.')<cr>

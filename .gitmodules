@@ -43,3 +43,6 @@
 [submodule "vim81/pack/my-plugins/start/setcolors.vim"]
 	path = vim81/pack/my-plugins/start/setcolors.vim
 	url = https://github.com/felixhummel/setcolors.vim
+[submodule "vim81/pack/my-plugins/start/vim-markdown-folding.git"]
+	path = vim81/pack/my-plugins/start/vim-markdown-folding.git
+	url = https://github.com/masukomi/vim-markdown-folding

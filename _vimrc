@@ -50,14 +50,15 @@ iabbrev @@ lieven@iwega.be
 iabbrev ssig <cr>Lieven Keersmaekers<cr>lieven@iwega.be
 
 " Folding methods
-let javaScript_fold=1         " JavaScript
-let perl_fold=1               " Perl
-let php_folding=1             " PHP
-let r_syntax_folding=1        " R
-let ruby_fold=1               " Ruby
-let sh_fold_enabled=1         " sh
-let vimsyn_folding='af'       " Vim script
-let xml_syntax_folding=1      " XML
+let javaScript_fold=1                 " JavaScript
+let perl_fold=1                       " Perl
+let php_folding=1                     " PHP
+let r_syntax_folding=1                " R
+let ruby_fold=1                       " Ruby
+let sh_fold_enabled=1                 " sh
+let vimsyn_folding='af'               " Vim script
+let xml_syntax_folding=1              " XML
+let g:markdown_fold_style = 'nested'  " Markdown
 
 " Creates 26 new text-objects -- http://stackoverflow.com/a/44109750/52598
 for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '%', '-', '#' ]

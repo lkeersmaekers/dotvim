@@ -115,8 +115,8 @@ nnoremap <leader>evt :e! $VIMRUNTIME/doc/vimtips.txt<cr>
 " Replace <esc> with kj
 inoremap kj <esc>
 " The trick to relearning a mapping is to *force* yourself to use it by *disabling* the old key(s).
-" note: disabled because when using :norm, I'd like to use <c-v><esc> combination io kj
 " inoremap <esc> <nop>
+" note: disabled because when using :norm, I'd like to use <c-v><esc> combination io kj
 
 " Show the cursorline
 set cursorline
@@ -130,9 +130,10 @@ set clipboard=unnamed
 " Paste yanked text multiple times
 xnoremap p pgvy
 
-" Use <c-n> to navigate to next buffer, <c-b> to previous (help key-codes - alt only works in gui)
-nnoremap <c-n> :bn<cr>
-nnoremap <c-b> :bp<cr>
+" https://stackoverflow.com/a/5563142/52598
+" Now a Tab let you go to the next buffer and a Shift-Tab to the previous.
+nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
+nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
 " Populate the prompt with all loaded buffers and wait for a buffer to select
 nnoremap <leader>b :ls<cr>:b<space>

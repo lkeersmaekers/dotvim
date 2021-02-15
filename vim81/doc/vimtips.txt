@@ -1199,11 +1199,11 @@ endif
 vim -c ":%s%s*%Cyrnfr)fcbafbe[Oenz(Zbbyranne%|:%s)[[()])-)Ig|norm Vg?"
 ----------------------------------------/*>>>*/
 *Lieven* /*<<<*/ ~
-:pu! =map(range(1,30), 'printf(''scraper%02d.nj.company.com'', v:val)')  : Create 30 lines with autonumbering
-:pu! =map(range(1,30), 'v:val')  : Create 30 lines with autonumbering
-:pu! =map(range(30), 'v:val')  : Create 30 lines with autonumbering, starting from 0
-:pu! =map(range(0,30,3), 'v:val')  : Create 10 lines with table of three
+:put! =map(range(1,30), 'printf(''scraper%02d.nj.company.com'', v:val)')  : Create 30 lines with autonumbering
+:put! =map(range(1,30), 'v:val')  : Create 30 lines with autonumbering
+:put! =map(range(30), 'v:val')  : Create 30 lines with autonumbering, starting from 0
+:put! =map(range(0,30,3), 'v:val')  : Create 10 lines with table of three
 
 *Lieven append line* /*<<<*/ ~
 Go         normal mode
-:$pu _     command mode
+:$put _     command mode

@@ -129,9 +129,9 @@ set clipboard=unnamed
 " Paste yanked text multiple times
 xnoremap p pgvy
 
-" Use <c-n> to navigate to next buffer
+" Use <c-n> to navigate to next buffer, <s-n> to previous (help key-codes)
 nnoremap <c-n> :bn<cr>
-nnoremap <a-n> :bp<cr>
+nnoremap <s-n> :bp<cr>
 
 " Populate the prompt with all loaded buffers and wait for a buffer to select
 nnoremap <leader>b :ls<cr>:b<space>

@@ -132,8 +132,8 @@ xnoremap p pgvy
 
 " https://stackoverflow.com/a/5563142/52598
 " Now a Tab let you go to the next buffer and a Shift-Tab to the previous.
-nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
-nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
+nnoremap <silent><tab> :bnext<cr>
+nnoremap <silent><s-tab> :bprevious<cr>
 
 " Populate the prompt with all loaded buffers and wait for a buffer to select
 nnoremap <leader>b :ls<cr>:b<space>

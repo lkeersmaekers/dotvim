@@ -168,9 +168,6 @@
 
 --langmap=vim:+(vimrc)
 
---langdef=Groovy
---langmap=java:.groovy
-
 --exclude=.git
 --exclude=.svn
 --exclude=.hg

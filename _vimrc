@@ -18,6 +18,11 @@
 packadd! editexisting
 packadd! matchit
 
+" Updating submodules: https://stackoverflow.com/a/19029685/52598
+" git submodule update --init --recursive
+" git submodule foreach --recursive git fetch
+" git submodule foreach git merge origin master
+
 " => Text, tab and indent related {{{2
 "    Note: Other settings are reset by setting nocp. Make sure it is first to execute
 set nocp                                                     " nocompatible

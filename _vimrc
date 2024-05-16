@@ -39,7 +39,6 @@ set ai                                                       " Auto indent
 set si                                                       " Smart indent
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
-set showbreak=ª
 set ve=all                                                   " Virtual Edit
 set nosol                                                    " Start of line (<c-g>G stays in same column)
 set diffopt=filler,vertical

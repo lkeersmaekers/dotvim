@@ -1,48 +1,48 @@
 [submodule "vim91/pack/my-plugins/start/Align"]
 	path = vim91/pack/my-plugins/start/Align
 	url = https://github.com/vim-scripts/Align.git
-	ignore = untracked
+	ignore = dirty
 [submodule "vim91/pack/my-plugins/start/taglist.vim"]
 	path = vim91/pack/my-plugins/start/taglist.vim
 	url = https://github.com/vim-scripts/taglist.vim.git
-	ignore = untracked
+	ignore = dirty
 [submodule "vim91/pack/my-plugins/start/vim-colorschemes"]
 	path = vim91/pack/my-plugins/start/vim-colorschemes
 	url = https://github.com/flazz/vim-colorschemes.git
-	ignore = untracked
+	ignore = dirty
 [submodule "vim91/pack/my-plugins/start/vim-fugitive"]
 	path = vim91/pack/my-plugins/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-	ignore = untracked
+	ignore = dirty
 [submodule "vim91/pack/my-plugins/start/vim-textobj-entire"]
 	path = vim91/pack/my-plugins/start/vim-textobj-entire
 	url = https://github.com/kana/vim-textobj-entire.git
-	ignore = untracked
+	ignore = dirty
 [submodule "vim91/pack/my-plugins/start/vim-textobj-user"]
 	path = vim91/pack/my-plugins/start/vim-textobj-user
 	url = https://github.com/kana/vim-textobj-user.git
-	ignore = untracked
+	ignore = dirty
 [submodule "vim91/pack/my-plugins/start/vim-commentary"]
 	path = vim91/pack/my-plugins/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
-	ignore = untracked
+	ignore = dirty
 [submodule "vim91/pack/my-plugins/start/vim-scriptease"]
 	path = vim91/pack/my-plugins/start/vim-scriptease
 	url = https://github.com/tpope/vim-scriptease.git
-	ignore = untracked
+	ignore = dirty
 [submodule "vim91/pack/my-plugins/start/vim-unimpaired"]
 	path = vim91/pack/my-plugins/start/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
-	ignore = untracked
+	ignore = dirty
 [submodule "vim91/pack/my-plugins/start/LargeFile"]
 	path = vim91/pack/my-plugins/start/LargeFile
 	url = https://github.com/vim-scripts/LargeFile
-	ignore = untracked
+	ignore = dirty
 [submodule "vim91/pack/my-plugins/start/mru"]
 	path = vim91/pack/my-plugins/start/mru
 	url = https://github.com/inkarkat/mru
-	ignore = untracked
+	ignore = dirty
 [submodule "vim91/pack/my-plugins/start/vim-markdown-folding"]
 	path = vim91/pack/my-plugins/start/vim-markdown-folding
 	url = https://github.com/masukomi/vim-markdown-folding
-	ignore = untracked
+	ignore = dirty
